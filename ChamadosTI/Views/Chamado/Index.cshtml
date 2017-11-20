@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ChamadosTI.Models.Chamado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="w3-container w3-display-container container">
+
+    <div class="w3-container  ">
+        <h2 class="w3-display-topmiddle">Chamados</h2>
+        <br></br>
+        <br></br>
+        <h6 class="w3-button  w3-hover-gray w3-padding w3-border">@Html.ActionLink("Criar chamado", "Create")</h6>
+
+        <input class="w3-input w3-border w3-padding" type="text" placeholder="Achar ticket" id="myInput" onkeyup="procurarTicket()">
+        <br>
+        <table class="w3-table-all w3-centered" id="myTable">
+            <tr class="b-blue-light">
+                <th>
+                    Ticket
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pa)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoChamado.Descricao)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Requisitante)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Responsavel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>Açao</th>
+            </tr>
+            <tr>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdChamado)
+
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+
+
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.Pa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoChamado.Descricao)
+
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Requisitante.Nome)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Responsavel.Nome)
+
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Status.Descricao)</td>
+                    <td>@Html.ActionLink("Atualizar", "Edit", new { id = item.IdChamado }, new { @class = "w3-button w3-round-large w3-small b-orange c-white" }) </td>
+                </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+    function procurarTicket() {
+      var input, filter, table, tr, td, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>

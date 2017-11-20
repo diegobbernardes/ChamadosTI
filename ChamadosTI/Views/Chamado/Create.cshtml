@@ -1,0 +1,100 @@
+﻿@model ChamadosTI.Models.Chamado
+
+@{
+    ViewBag.Title = "Create";
+    var data = ViewBag.Data;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Cadastrar chamado</h2>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="w3-container containercad">
+        <div class="w3-container b-blue-light">
+            <h6>Novo chamado</h6>
+        </div>
+        <div class="w3-container  w3-border">
+            <br>
+
+            <div class="">
+                <div>
+                    @Html.DropDownList("IdTipoChamado", null, "Tipo chamado ", htmlAttributes: new { @class = "w3-select w3-border w3-text-grey", required = "required", onchange = "mostrarForm();" }) @Html.ValidationMessageFor(model => model.IdTipoChamado, "", new { @class = "w3-pale-yellow" })
+
+                </div>
+            </div>
+            @*<div id="Demo" class=" noshow">
+                    <h4>Chamados Recorrentes</h4>
+                    <p>
+                        <div class="w3-row">
+                            <div class="w3-half">
+                                <input id="descricao" class="w3-check" type="checkbox" checked="checked">
+                                <label>Fone</label>
+                                <br>
+                                <input id="sugar" class="w3-check" type="checkbox">
+                                <label>Caixinha</label>
+                                <br>
+                                <input id="dd" class="w3-check" type="checkbox">
+                                <label>Telefone</label>
+                                <br><br>
+                            </div>
+                        </div>
+                    </p>
+                </div>*@
+
+            <div class="">
+                @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "" })
+                <div class="">
+                    @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "w3-input w3-border w3-text-grey" } }) @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "w3-pale-yellow" })
+                </div>
+            </div>
+
+            <div class="">
+                @Html.LabelFor(model => model.Pa, htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.EditorFor(model => model.Pa, new { htmlAttributes = new { @class = "w3-input w3-border w3-text-grey" } }) @Html.ValidationMessageFor(model => model.Pa, "", new { @class = "w3-pale-yellow" })
+                </div>
+            </div>
+
+            <div class="">
+                @Html.LabelFor(model => model.IdRequisitante, "Requisitante", htmlAttributes: new { @class = "" })
+                <div>
+                    @Html.DropDownList("IdRequisitante", null, htmlAttributes: new { @class = "w3-input w3-border w3-text-grey" }) @Html.ValidationMessageFor(model => model.IdRequisitante, "", new { @class = "w3-pale-yellow" })
+                </div>
+            </div>
+
+
+            @*
+                <div class="w3-select w3-border">
+                  @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "w3-text-grey" })
+                  <div >
+                    @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "w3-input w3-border" } }) @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                  </div>
+                </div>*@
+            <p><input type="submit" value="Cadastrar" class="w3-button  w3-hover-green w3-padding w3-border w3-hover-border-green" /></p>
+
+        </div>
+        <br>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
+
+<script>
+    function mostrarForm() {
+      var x = document.getElementById("IdTipoChamado").value;
+      var a = document.getElementById("Demo");
+      if (x == 2) {
+        if (a.className.indexOf("w3-show") == -1) {
+          a.className += " w3-show";
+        } else {
+          a.className = a.className.replace(" w3-show", "");
+        }
+      } else {
+        a.className = a.className.replace(" w3-show", "");
+      }
+    }
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,86 @@
+﻿@model ChamadosTI.Models.Chamado
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Atualizar chamado</h2>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.IdChamado)
+    <div class="w3-container containercad">
+        <div class="w3-container b-blue-light">
+            <h6>Atualizar chamado</h6>
+        </div>
+        <div class="w3-container  w3-border" >
+            <br>
+
+            <div class="">
+                @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "w3-input w3-border w3-text-grey" } })
+                    @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="display:none;" class="">
+                @Html.LabelFor(model => model.Pa, htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Pa, new { htmlAttributes = new { @class = "w3-input w3-border w3-text-grey" } })
+                    @Html.ValidationMessageFor(model => model.Pa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="">
+                @Html.LabelFor(model => model.IdTipoChamado, "Tipo Chamado", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdTipoChamado", null, htmlAttributes: new { @class = "w3-input w3-border w3-text-grey" })
+                    @Html.ValidationMessageFor(model => model.IdTipoChamado, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="display:none;" class="">
+                @Html.LabelFor(model => model.IdRequisitante, "Requisitante", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdRequisitante", null, htmlAttributes: new { @class = "w3-input w3-border w3-text-grey" })
+                    @Html.ValidationMessageFor(model => model.IdRequisitante, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="">
+                @Html.LabelFor(model => model.IdResponsavel, "Responsavel", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdResponsavel", null, htmlAttributes: new { @class = "w3-input w3-border w3-text-grey" })
+                    @Html.ValidationMessageFor(model => model.IdResponsavel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="">
+                @Html.LabelFor(model => model.IdStatus, "Status", htmlAttributes: new { @class = "" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IdStatus", null, htmlAttributes: new { @class = "w3-input w3-border w3-text-grey" })
+                    @Html.ValidationMessageFor(model => model.IdStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="">
+                <div class="col-md-offset-2 col-md-10">
+                    <p><input type="submit" value="Cadastrar" class="w3-button  w3-hover-green w3-padding w3-border w3-hover-border-green" /></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

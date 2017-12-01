@@ -30,6 +30,9 @@ namespace ChamadosTI.Models
 
         public int? IdStatus { get; set; } = 1;
         [ForeignKey("IdStatus")]
-        public virtual TipoStatus Status { get; set; } 
+        public virtual TipoStatus Status { get; set; }
+
     }
+
+
 }

@@ -211,12 +211,14 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chamado.cs" />
+    <Compile Include="Models\Charts.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TipoStatus.cs" />
     <Compile Include="Models\TipoChamado.cs" />
     <Compile Include="Models\TipoUsuario.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\ViewModelChamados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -308,9 +310,15 @@
     <Content Include="Views\TipoUsuario\Edit.cshtml" />
     <Content Include="Views\TipoUsuario\Index.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\charts\Create.cshtml" />
+    <Content Include="Views\charts\Delete.cshtml" />
+    <Content Include="Views\charts\Details.cshtml" />
+    <Content Include="Views\charts\Edit.cshtml" />
+    <Content Include="Views\charts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ViewChamado\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

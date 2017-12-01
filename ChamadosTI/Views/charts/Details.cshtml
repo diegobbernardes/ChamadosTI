@@ -1,0 +1,74 @@
+﻿@model ChamadosTI.Models.Chamado
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Chamado</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Requisitante.Nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Requisitante.Nome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Responsavel.Nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Responsavel.Nome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Status.Descricao)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Status.Descricao)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoChamado.Descricao)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TipoChamado.Descricao)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pa)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pa)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IdChamado }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

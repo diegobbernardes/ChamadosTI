@@ -19,8 +19,21 @@ namespace ChamadosTI.Controllers
         public ActionResult Index()
         {
             var chamados = db.Chamados.Include(c => c.Requisitante).Include(c => c.Responsavel).Include(c => c.Status).Include(c => c.TipoChamado);
+
+
+            var groupedBy = chamados.GroupBy(info => info.Status.Descricao)
+                        .Select(group => new Charts
+                        {
+                            Descricao = group.Key,
+                            Quantidade = group.Count().ToString()
+                        });
+
+
+            ViewBag.AbertoFechado = groupedBy.ToList();
+            //ViewBag.chamados = chamados.ToList();
             return View(chamados.ToList());
         }
+
 
         // GET: Chamado/Details/5
         public ActionResult Details(int? id)

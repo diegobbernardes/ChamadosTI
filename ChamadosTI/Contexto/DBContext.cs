@@ -19,6 +19,8 @@ namespace ChamadosTI.Contexto
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
 
+
+
         public System.Data.Entity.DbSet<ChamadosTI.Models.TipoStatus> Status { get; set; }
 
         public System.Data.Entity.DbSet<ChamadosTI.Models.TipoUsuario> TipoUsuarios { get; set; }
